@@ -4,3 +4,37 @@
 3. 具有较强的团队合作精神，能快速的融入开发团队
 4. 勇于面对困难和挑战，有很好的自主分析问题与解决问题的能力
 5. 最近在捣鼓github自己开源一款个人家庭主页系统，买个云服务器部署上去
+专业技能：
+技术：精通JAVA基础， 熟悉RCP(SWT/JFACE)插件编程，了解ant技术，findbugs,PMD插件，熟悉JavaScript， AJAX，jQuery，Extjs技术，了解NOSQL缓存机制(Memcahce、Redis)，有高并发项目经验；maven+git
+框架：熟悉Struts、Spring、Hibernate、Mybatis（ibatis）等主流开源框架技术，熟练使用SprinMvc+MyBatis进行整合开发，熟悉MVC设计模式，了解常见的框架设计思想。
+数据库：熟悉关系型数据库Oracle，SQL server，Mysql数据库，熟悉SQL常用的操作语句及其存储过程原理；
+服务器：熟悉jetty/Tomcat6.0应用服务器部署；
+开发工具：熟练使用Eclipse/MyEclipse和SVN版本控制工具, 熟练使用EA等UML主力建模工具
+代码规范：有良好的编码习惯，熟练运用注释，日志等管理系维护统，了解JAVA编码规范。
+编程思想：具有良好的系统分析和设计能力，深入理解面向对象分析、设计方法。
+操作系统：熟悉linux操作系统，熟悉 Linux 基本操作，熟悉Shell/Python 等脚本语言，基本的shell语句操作，PuTTY, Xmanager Enterprise,XShell等linux远程操作软件的使用。
+工作经验：
+2015年11月—至今          INFOSYS                      JAVAEE工程师
+2012年2月—2015年10月   中软国际科技服务有限公司JV华为合资公司（华为外包项目）     JAVAEE工程师
+项目经验：
+项目名称：华为桌面APP Store应用商店服务端
+项目时间：2014年9月—至今
+软件环境：Windows7/linux+ORACLE/SYBASE+JDK 
+使用技术：SprinMvc+MyBatis+JavaScript，div+css，AJAX，jQuery，Extjs
+开发工具：eclipse，Oracle/Sybase, PL/SQL, SVN协同开发工具
+项目描述：华为终端桌面程序自主研发的一款APPStore系统，快速开发和管理APP的平台，社交化开发,APP和源码一键共享，无缝和设计桌面、开发桌面、测试桌面等对接，提供APP开发的模板，一键式发布功能，让你轻松的上手
+开发一个APP你只需三步？
+1）下载APP模板简单的配置
+2）开发APP
+3）一键发布
+如果你有一个好用的工具或者idea也可按照模板简单配置开发成一个APP
+如果APP是试用版本或是定制版本，也可指定人员灰度发布
+如何开发APP:
+http://rnd-appstore.huawei.com/appstore
+发布后,你可以查看APP的下载量，评价，还可以和使用者互动
+AppStore地址：http://rnd-appstore.huawei.com/appstore/homepage/index.action
+例如：Avenue Smart IDE为我司量身定做的集任务管理、本地构建、代码高级检查、源代码管理等功能于一体的开发环境。 SmartIDE团队让您第一时间了解到SmartIDE的动态、热点新闻，广大SmartIDE用户交流平台，欢迎大家多多参与。
+职责描述：1.AppStore应用中心模块的开发（仿照谷歌商店）。
+         2.AppStore个人中心模块的开发。
+         3.AppStore 后台管理模块的开发。
+主要收获：熟练使用Extjs，SprinMvc+MyBatis进行整合开发，熟练使用jquery,json等数据交换格式接口与WEB服务开发,熟练使用oracle数据库SQL语句优化操作；
