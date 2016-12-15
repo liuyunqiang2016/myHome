@@ -3,9 +3,9 @@
 2．对工作认真负责学习能力强，喜欢专研新技术能够很快的学习和掌握新技术
 3. 具有较强的团队合作精神，能快速的融入开发团队
 4. 勇于面对困难和挑战，有很好的自主分析问题与解决问题的能力
-5. 最近在捣鼓github自己开源一款个人家庭主页系统，买个云服务器部署上去
+5. 最近在捣鼓github自己开源一款个人家庭主页系统，买个云服务器部署上去; SPRING-BOOT微服务程序的开发
 专业技能：
-技术：精通JAVA基础， 熟悉RCP(SWT/JFACE)插件编程，了解ant技术，findbugs,PMD插件，熟悉JavaScript， AJAX，jQuery，Extjs技术，了解NOSQL缓存机制(Memcahce、Redis)，有高并发项目经验；maven+git
+技术：精通JAVA基础，SOA/REST， 熟悉RCP(SWT/JFACE)插件编程，了解ant技术，findbugs,PMD插件，熟悉JavaScript， AJAX，jQuery，Extjs技术，了解NOSQL缓存机制(Memcahce、Redis)，有高并发项目经验；maven+git
 框架：熟悉Struts、Spring、Hibernate、Mybatis（ibatis）等主流开源框架技术，熟练使用SprinMvc+MyBatis进行整合开发，熟悉MVC设计模式，了解常见的框架设计思想。
 数据库：熟悉关系型数据库Oracle，SQL server，Mysql数据库，熟悉SQL常用的操作语句及其存储过程原理；
 服务器：熟悉jetty/Tomcat6.0应用服务器部署；
