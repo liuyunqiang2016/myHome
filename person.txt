@@ -1,9 +1,5 @@
-自我评价：
-1．热爱运动，喜欢打篮球，旅游，唱歌，游泳等，对电子竞技也感兴趣
-2．对工作认真负责学习能力强，喜欢专研新技术能够很快的学习和掌握新技术
-3. 具有较强的团队合作精神，能快速的融入开发团队
-4. 勇于面对困难和挑战，有很好的自主分析问题与解决问题的能力
-5. 最近在捣鼓github自己开源一款个人家庭主页系统，买个云服务器部署上去; SPRING-BOOT微服务程序的开发;敏捷迭代开发
+SPRING-BOOT微服务程序的开发;敏捷迭代开发
+
 专业技能：
 技术：精通JAVA基础，SOA/RESTful， 熟悉RCP(SWT/JFACE)插件编程，了解ant技术，findbugs,PMD插件，熟悉JavaScript， AJAX，jQuery，Extjs技术，了解NOSQL缓存机制(Memcahce、Redis)，有高并发项目经验；maven+git
 框架：熟悉Struts、Spring、Hibernate、Mybatis（ibatis）等主流开源框架技术，熟练使用SprinMvc+MyBatis进行整合开发，熟悉MVC设计模式，了解常见的框架设计思想。
@@ -13,9 +9,8 @@
 代码规范：有良好的编码习惯，熟练运用注释，日志等管理系维护统，了解JAVA编码规范。
 编程思想：具有良好的系统分析和设计能力，深入理解面向对象分析、设计方法。
 操作系统：熟悉linux操作系统，熟悉 Linux 基本操作，熟悉Shell/Python 等脚本语言，基本的shell语句操作，PuTTY, Xmanager Enterprise,XShell等linux远程操作软件的使用。
-工作经验：
-2015年11月—至今          INFOSYS                      JAVAEE工程师
-2012年2月—2015年10月   中软国际科技服务有限公司JV华为合资公司（华为外包项目）     JAVAEE工程师
+
+
 项目经验：
 项目名称：华为桌面APP Store应用商店服务端
 项目时间：2014年9月—至今
@@ -46,19 +41,7 @@ AppStore地址：http://rnd-appstore.huawei.com/appstore/homepage/index.action
 项目描述：OJ平台（Online Judge）是华为公司定制开发的在线软件训练与测试平台，主要用于华为校园招聘软件类上机考试及华为内部人员晋升，升职定级等考试系统。此项目有三个版本：校园网，华为内网，客户外网。
 职责描述：现阶段处于维护版本迭代阶段，处理用户反馈的问题，bug的修改，大数据并发缓存机制(Memcahce、Redis)等优化
 主要收获：熟练使用Extjs，SprinMvc+ Hibernate进行整合开发，,熟练使用MySql数据库SQL语句优化操作；了解缓存机制(Memcahce、Redis)，高并发优化。
-项目名称：iManager U2000移动网元管理系统
-项目时间：2013年6月—2014年9月
-软件环境：Windows7/linux+ORACLE/SYBASE+JDK 
-开发工具：eclipse/womat，Oracle/Sybase,PL/SQL, SVN协同开发工具
-项目描述：随着通信技术的快速发展，新的业务层出不穷，网络也变得越来越庞大，越来越复杂，使网络的管理、维护、优化变得更加困难。使用iManager U2000网管系列产品，将使您更快捷地：
-  监控、预测和检测网络故障，提高网络运营的服务质量，提高网络运行的可靠性； 
-  分析业务瓶颈，合理规划和调配网络资源； 
-  集中管理分布广泛的网络节点，降低运营成本。
-职责描述：1.性能模块自动化用例的开发。
-          2.告警模块自动化用例的开发。
-          3.北向接口模块自动化用例的开发。
-      4.性能基线自动化用例的开发。
-主要收获：熟悉womat (华为封装的Rational Functional Tester自动化框架)开发(全部是纯JAVA代码无缝对接开发)，linux后台语句处理数据，熟悉 Linux 基本语句操作，熟悉Shell/Python 等脚本语言
+
 
 项目名称：iManager N2510 线路保障系统
 项目时间：2012年2月7号—2013年5月
