@@ -1,0 +1,7 @@
+var homeUrl = window.location.origin + "/xxx";
+		var offerListUrl = window.location.origin + "/xxx/xxx/";
+		 offerListUrl += "xxx.html?hiddentag=1&reversalId={0}&sourceType=protal&roleName=Bidding Leader".formatValue(parentId);
+		var a = "<a href='javascript:void(0);' onclick='window.open(\"{0}\");'>"+"<span href='null'>{1}</span>"+"</a>".formatValue(homeUrl, $i18n('xxx.link.home'));
+		a += "&gt;<a href='javascript:void(0);' onclick='window.open(\"{0}\");'>"+"<span href='null'>{1}</span></a>".formatValue(offerListUrl, $i18n('xxx.link.offerList'));
+		a += "&gt;<a>{0}</a>".formatValue($i18n('xxx.link.xxx'));
+		$('#jalor_page_nav').empty().append(a);
