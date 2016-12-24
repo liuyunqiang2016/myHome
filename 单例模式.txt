@@ -1,0 +1,3 @@
+在Spring中，Bean的scope默认是singleton的，也就是“单例”。
+另外一个用得比较多的scope，是prototype，也就是用到的时候新建一个，例如Spring和Struts2集成时，Struts2的Action类默认是prototype的。
+另外，在WebApplication的环境下，还有session，request等scope，这些也不是单例。
