@@ -1,0 +1,15 @@
+A、@Before 注解：与junit3.x中的setUp()方法功能一样，在每个测试方法之前执行；
+B、@After 注解：与junit3.x中的tearDown()方法功能一样，在每个测试方法之后执行；
+C、@BeforeClass 注解：在所有方法执行之前执行；
+D、@AfterClass 注解：在所有方法执行之后执行；
+E、@Test(timeout = xxx) 注解：设置当前测试方法在一定时间内运行完，否则返回错误；
+F、@Test(expected = Exception.class) 注解：设置被测试的方法是否有异常抛出。抛出异常类型为：Exception.class；
+G、@Ignore 注解：注释掉一个测试方法或一个类，被注释的方法或类，不会被执行。
+F、@Spy  注解：//要进入方法体
+M、@Mock  注解：//不进入方法体
+N、assertEquals(） 测试期望结果
+
+Spring 测试框架
+可以测试基于Spring的应用，通过配置文件和注解自动组装需要的单元测试对象。
+提供了一些常用的J2EE Mock对象，比如HttpSession的Mock类等。
+可以支持数据库自动回滚，以防止对数据库的单元测试（插入，删除等）不可重复执行，防止修改数据库状态等。
