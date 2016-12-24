@@ -16,3 +16,8 @@
 1、通过git clone代码到本地
 2、执行mvn eclipse:eclipse生成ecllipse项目文件
 3、然后导入到eclipse即可（idea同理）
+
+
+
+//redis缓存的使用说明，按照图解
+http://www.cnblogs.com/ablejava/p/5598534.html
