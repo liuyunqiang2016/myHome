@@ -11,44 +11,7 @@ SPRING-BOOT微服务程序的开发;敏捷迭代开发
 操作系统：熟悉linux操作系统，熟悉 Linux 基本操作，熟悉Shell/Python 等脚本语言，基本的shell语句操作，PuTTY, Xmanager Enterprise,XShell等linux远程操作软件的使用。
 
 
-项目经验：
-项目名称：华为桌面APP Store应用商店服务端
-项目时间：2014年9月—至今
-软件环境：Windows7/linux+ORACLE/SYBASE+JDK 
-使用技术：SprinMvc+MyBatis+JavaScript，div+css，AJAX，jQuery，Extjs
-开发工具：eclipse，Oracle/Sybase, PL/SQL, SVN协同开发工具
-项目描述：华为终端桌面程序自主研发的一款APPStore系统，快速开发和管理APP的平台，社交化开发,APP和源码一键共享，无缝和设计桌面、开发桌面、测试桌面等对接，提供APP开发的模板，一键式发布功能，让你轻松的上手
-开发一个APP你只需三步？
-1）下载APP模板简单的配置
-2）开发APP
-3）一键发布
-如果你有一个好用的工具或者idea也可按照模板简单配置开发成一个APP
-如果APP是试用版本或是定制版本，也可指定人员灰度发布
-如何开发APP:
-http://rnd-appstore.huawei.com/appstore
-发布后,你可以查看APP的下载量，评价，还可以和使用者互动
-AppStore地址：http://rnd-appstore.huawei.com/appstore/homepage/index.action
-例如：Avenue Smart IDE为我司量身定做的集任务管理、本地构建、代码高级检查、源代码管理等功能于一体的开发环境。 SmartIDE团队让您第一时间了解到SmartIDE的动态、热点新闻，广大SmartIDE用户交流平台，欢迎大家多多参与。
-职责描述：1.AppStore应用中心模块的开发（仿照谷歌商店）。
-         2.AppStore个人中心模块的开发。
-         3.AppStore 后台管理模块的开发。
-主要收获：熟练使用Extjs，SprinMvc+MyBatis进行整合开发，熟练使用jquery,json等数据交换格式接口与WEB服务开发,熟练使用oracle数据库SQL语句优化操作；
-项目名称：华为在线训练与测试平台Online Judge
-项目时间：2014年9月—至今
-软件环境：Windows7/linux+ORACLE/ JDK +tomcat
-使用技术：SprinMvc+ Hibernate +JavaScript，div+css，AJAX，jQuery，Extjs
-开发工具：eclipse，MySql/Sybase, PL/SQL, SVN协同开发工具
-项目描述：OJ平台（Online Judge）是华为公司定制开发的在线软件训练与测试平台，主要用于华为校园招聘软件类上机考试及华为内部人员晋升，升职定级等考试系统。此项目有三个版本：校园网，华为内网，客户外网。
-职责描述：现阶段处于维护版本迭代阶段，处理用户反馈的问题，bug的修改，大数据并发缓存机制(Memcahce、Redis)等优化
-主要收获：熟练使用Extjs，SprinMvc+ Hibernate进行整合开发，,熟练使用MySql数据库SQL语句优化操作；了解缓存机制(Memcahce、Redis)，高并发优化。
 
 
-项目名称：iManager N2510 线路保障系统
-项目时间：2012年2月7号—2013年5月
-软件环境：Windows7/Windows server2000/linux + ORACLE + JDK1.6 + Apache Tomcat6.0
-开发工具：eclipse，Oracle,PL/SQL, SVN协同开发工具
-项目描述：N2510 OLS系统帮助运营商对PON网络故障进行准确、快速定位，降低OPEX。且提供监控与预警功能帮助运营商实现主动运维，提升客户满意度。
-•	故障定位：通过使用N2510系统提供的测试项，运营商可快速定位故障发生的区域和位置，为修复故障提供可靠的依据。
-•	网络分析：N2510系统能对PON网络的运行状态进行统计分析，生成相关报表，便于运营商了解网络的整体运行状态。
-•	监控与预警：N2510系统能对网络运行状态进行主动监控，并根据预警阈值产生预警，提前预警可能的故障隐患。
-职责描述：我主要负责N2510版本迭代中问题的bug前台页面的整改，涉及到XHTML/JSP，div+css，AJAX，jQuery等技术，后期不同地区版本的维护，涉及到Datastation同步工具，正则表达式，DES/MD5加密解密；安全加固：webapp扫描，nesuss,对操作系统的扫描。
+
+
