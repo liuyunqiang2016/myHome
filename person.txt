@@ -1,17 +1,15 @@
-SPRING-BOOT微服务程序的开发;敏捷迭代开发
-
 专业技能：
-技术：精通JAVA基础，SOA/RESTful， 熟悉RCP(SWT/JFACE)插件编程，了解ant技术，findbugs,PMD插件，
-熟悉JavaScript， AJAX，jQuery，Extjs技术，了解NOSQL缓存机制(Memcahce、Redis)，有高并发项目经验；maven+git
-框架：熟悉Struts、Spring、Hibernate、Mybatis（ibatis）等主流开源框架技术，熟练使用SprinMvc+MyBatis进行整合开发，熟悉MVC设计模式，
-了解常见的框架设计思想。
-数据库：熟悉关系型数据库Oracle，SQL server，Mysql数据库，熟悉SQL常用的操作语句及其存储过程原理；
-服务器：熟悉jetty/Tomcat6.0应用服务器部署；
-开发工具：熟练使用Eclipse/MyEclipse和SVN版本控制工具, 熟练使用EA等UML主力建模工具
-代码规范：有良好的编码习惯，熟练运用注释，日志等管理系维护统，了解JAVA编码规范。
-编程思想：具有良好的系统分析和设计能力，深入理解面向对象分析、设计方法。
-操作系统：熟悉linux操作系统，熟悉 Linux 基本操作，熟悉Shell/Python 等脚本语言，基本的shell语句操作，
-PuTTY, Xmanager Enterprise,XShell等linux远程操作软件的使用。
+	算法：冒泡、快速排序,
+	前端技术：http://www.w3school.com.cn/领先的 Web 技术教程；JavaScript，bootstrap，html/css, AJAX(异步同步)，JSAON，jQuery，Extjs
+	后端技术：JAVA语言面向对象接口编程，熟练掌握Java 后台/ JavaEE进行项目开发。熟悉熟悉Struts、Spring、Hibernate、Mybatis（ibatis）等主流开源框架技术，，熟练使用SprinMvc+MyBatis进行整合开发，熟悉MVC设计模式，了解常见的框架设计思想
+	数据库：熟悉熟悉关系型数据库Oracle，SQL server，Mysql数据库，熟悉SQL常用的操作语句及其存储过程原理，熟悉了解NoSQL缓存机制(Memcahce、Redis),有高并发项目经验
+	开发工具：Eclipse/MyEclipse
+	代码规范：有良好的编码习惯，熟练运用注释，日志等管理系维护统，深入理解面向对象分析、设计方法，熟练JAVA设计模式六大原则，findbugs,PMD插件
+	操作系统：熟悉Linux操作系统，熟悉 Linux 基本操作，PuTTY, Xmanager Enterprise,XShell等linux远程操作软件的使用。
+	服务器：熟悉Tomcat6.0应用服务器，jetty服务器部署
+	版本控制工具：maven+nexus，掌握ant/git,maven技术，SVN/GIT版本控制工具, 熟练使用EA等UML主力建模工具
+	其他： 敏捷开发（瀑布式）、SOA/RESTful，SOA管控（CXF框架）、单元测试, SPRING-BOOT微服务程序的开发;敏捷迭代开发
+
 
 自我评价：                                                                                         
 	热爱编程，有良好的代码书写习惯和较强的程序调试能力，能够独立分析解决问题能力。
