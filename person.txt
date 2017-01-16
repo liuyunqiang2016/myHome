@@ -1,24 +1,3 @@
-专业技能：
-	算法：冒泡、快速排序,
-	前端技术：http://www.w3school.com.cn/领先的 Web 技术教程；JavaScript，bootstrap，html/css, AJAX(异步同步)，JSAON，jQuery，Extjs
-	后端技术：JAVA语言面向对象接口编程，熟练掌握Java 后台/ JavaEE进行项目开发。熟悉熟悉Struts、Spring、Hibernate、Mybatis（ibatis）等主流开源框架技术，，熟练使用SprinMvc+MyBatis进行整合开发，熟悉MVC设计模式，了解常见的框架设计思想
-	数据库：熟悉熟悉关系型数据库Oracle，SQL server，Mysql数据库，熟悉SQL常用的操作语句及其存储过程原理，熟悉了解NoSQL缓存机制(Memcahce、Redis),有高并发项目经验
-	开发工具：Eclipse/MyEclipse
-	代码规范：有良好的编码习惯，熟练运用注释，日志等管理系维护统，深入理解面向对象分析、设计方法，熟练JAVA设计模式六大原则，findbugs,PMD插件
-	操作系统：熟悉Linux操作系统，熟悉 Linux 基本操作，PuTTY, Xmanager Enterprise,XShell等linux远程操作软件的使用。
-	服务器：熟悉Tomcat6.0应用服务器，jetty服务器部署
-	版本控制工具：maven+nexus，掌握ant/git,maven技术，SVN/GIT版本控制工具, 熟练使用EA等UML主力建模工具
-	其他： 敏捷开发（瀑布式）、SOA/RESTful，SOA管控（CXF框架）、单元测试, SPRING-BOOT微服务程序的开发;敏捷迭代开发
-
-
-自我评价：                                                                                         
-	热爱编程，有良好的代码书写习惯和较强的程序调试能力，能够独立分析解决问题能力。
-	性格踏实稳重，善于人际交流和沟通，具备团队合作精神，较强的适应能力和动手能力。
-	勤奋上进好学，条理清晰，踏实肯干，有很强的责任心。
-	热爱团体活动运动，喜欢打篮球，旅游，唱歌，游泳等，对电子竞技也感兴趣
-	最近在捣鼓github自己开源一款个人家庭主页系统，买个云服务器部署上去
-
-
 
 项目名称：华为iSale3.0销售合同管理系统。
 项目描述：华为iSale3.0销售合同管理系统提供合同编写、审批、变更、执行的各个阶段的全生命周期文			档协作和管控，后天合同价格的概算，报价等服务。官方网址：http://w3.huawei.com/isales
