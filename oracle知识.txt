@@ -1,0 +1,291 @@
+三、实验结论
+
+1、查找字段的多少决定了取数据量的大小，不管对于排序或者索引查找都有很大影响。
+
+2、排序的顺序，与索引的顺序，必须一致，否则会有很差的性能。如果不一致，可以使用index_desc。
+
+3、对于查找很多字段的情况，由于数据量比较大，排序会更耗性能，使用索引避免排序会比较好。
+
+4、对于查找很少字段的情况，由于数据量相对较小，排序消耗的性能，会比使用索引全扫描再关联表消耗的性能，要少。这种情况，没有必要使用索引。
+
+ 
+
+四、到底什么时候用索引避免排序？
+
+       1、查找字段较多，建议超过5-6个；
+
+       2、使用索引不仅能避免排序，同时又能过滤大部分数据，如下例中使用组合索引的情况：
+       
+      
+     
+SQL：结构化查询语言，所有的数据库基本都支持标准的SQL语言 
+DDL:数据定义语言  用户，表空间，表 
+create  创建 
+alter 修改 
+drop 删除 
+
+DML：数据操作语言 对表数据的操作 
+insert into 插入 
+update 修改数据 
+delete 删除数据 
+select 查询数据 
+
+TCL：事物控制语言 
+savepoint 保存点名;  //设置保存点 
+rollback  保存点名； //回滚到指定的保存点 
+commit ；//提交事物 
+
+DCL：数据控制语言 
+--创建表 
+create table student( 
+userNum number(10), 
+userName varchar2(20), 
+userSex char(2) 
+) 
+
+--修改表结构 
+alter table student modify(userSex char(4)); 
+
+--查看表结构 
+desc student; 
+
+--sysdate 数据库的当前系统时间 
+
+--插入数据到student表 
+insert into 表名(字段名,字段名...) values (值1，值2...); 
+如果不写字段名，values的值就是按照创建表的时候的字段顺序给所有字段赋值 
+insert into 表名 values (所有字段的值); 
+
+
+--修改语句 
+update 表名 set 字段=新值,字段=新值 where 字段=值； 
+update student set usersex='女' where username='王五'; 
+
+--删除语句 
+delete from 表名 where 字段=值; 
+delete from student where usernum=1; 
+
+//快速清空所有的数据 
+truncate table student; 
+
+--创建表空间 
+create tablespace scottSpace datafile 'scottfile'; 
+
+--克隆表(带数据) 
+create table empbak as select * from emp; 
+克隆表结构(不带数据) 
+create table empbak as select * from emp where 1=2; 
+
+--事物：做一件事情所需要的一系列完整的操作 
+rollback 回滚到最后一次的事物提交点 
+commit 提交事物，当关闭Oracle客户端的时候，会自动提交 
+savepoint 设置保存点 
+rollback to 保存点 
+
+--数据控制语言 
+grant 授权语句 
+
+--从结果集中去掉重复的数据 distinct 
+
+SELECT * FROM EMP WHERE ENAME LIKE 'M%' ; --模糊查询 % _ 
+SELECT * FROM EMP WHERE ENAME LIKE '____' ; --查询名字为4个字符的数据 
+SELECT * FROM EMP WHERE ENAME LIKE '%M%'--名字中含有M的数据 
+SELECT * FROM EMP WHERE ENAME LIKE '%M'; --名字以M结尾的数据 
+SELECT * FROM EMP WHERE SAL>ANY(2000,3000,4000);--比任意的一个都大即可 
+SELECT * FROM EMP WHERE SAL>ALL(2000,3000,4000);--比所有的都大才行 
+SELECT * FROM NEWER_T WHERE BD IS NOT NULL ;--不为空的数据 
+
+--对数据进行排序  order by 
+
+-------------------------------------------------------------------------- 
+--单行函数 
+日期函数 
+--15个月后是什么时候 
+select add_months(sysdate,15) from dual; 
+
+字符函数 
+
+将首字母大写：select initcap('hello') from dual; 
+将大写转成小写：select lower(ename) from emp; 
+
+upper('') 将小写转成大写 
+Ltrim('abc123','abc') 如果参数二中任意一个字符出现在参数一 
+
+的左边，就去掉 
+Rtrim('abc123','123')如果参数二中任意一个字符出现在参数一的 
+
+右边，就去掉 
+Translate('abca','a','b');如果参数二在参数一中出现，就用参 
+
+数三代替 
+replace('','','')如果参数二在参数一中出现，就用参数三代替 
+instr('abcd','c') 获得参数二在参数一种出现的位置 
+substr('abcdef',3,2);从第3个字符开始，截取2个字符 
+Concat('abc','def') 连接两个字符串 
+CHR(97) 获得数字对应的字符 
+ASCII('A') 获得字符对应ASCII码 
+Lpad('abc',10,'*')如果abc不够10位，就在abc的左边加上* 
+Rpad('abc',10,'*')如果abc不够10位，就在abc的右边加上* 
+length('') 获得字符串的长度 
+trim('abcabc','a') 去掉参数一左右两边出现的参数二 
+decode() 
+
+
+数字函数 
+abs()绝对值 
+
+转换函数 
+to_char(date,'YYYY-MM-DD');//将日期类型转成字符类型 
+to_date('2015-10-12','YYYY-MM-DD');//将字符串类型转成日期类 
+
+型 
+to_number('1234');//将数字字符串转成数字 
+
+
+计算员工的月收入 =月工资+奖金 
+NVL 函数 ：将null值转化成指定的值 
+select sal,comm,sal+nvl(comm,0) from emp; 
+
+NVL2 函数 如果有奖金，就在原奖金的基础上+200，如果没有奖金，就发300的奖金 
+select ename,comm 原奖金,nvl2(comm,comm+200,300) 应发奖金 from emp; 
+
+NULLIF 函数  如果奖金是300，就变为null 
+select ename,comm,nullif(comm,300) from emp; 
+
+--分组函数 
+COUNT 函数 统计数据 
+select count(empno) from emp where deptno=10; 
+
+统计本月应发的总工资 
+SUM 函数  求和 
+select sum(sal) from emp; 
+
+计算平均工资 
+AVG 函数  求平均值 
+select avg(sal) from emp; 
+
+MAX函数 求最大值 
+获得最高工资 
+select max(sal) from emp; 
+
+MIN函数 求最小值 
+获得最低工资 
+select min(sal) from emp; 
+
+分组函数不能和单行函数，字段同时使用 
+
+--分组语句  group by 
+select 字段名 as 别名,字段名 as 别名 from 表名 as 别名 where 条件 group by  
+
+having 条件； 
+
+统计每个部门每个月发出的工资总和 
+select deptno,sum(sal) from emp group by deptno; 
+
+--分组之前的条件用where语句， 
+--分组之后的条件用having语句 
+
+求出每个经理手下员工的平均工资在2500以上的经理编号及平均工资 
+select ename,avg(sal) from emp group by mgr having avg(sal)>2500; 
+
+分析函数 
+Row_number:得到连续的数字 
+Rank   ：相同的值排位相同，随后跳跃 
+Dense_Rank：相同的值排位相同，随后接着往后排 
+--------------------------------------------------------------------------- 
+操作符 
+算术操作符   + - * /  
+比较操作符    = !=  >  < >= <= 
+between...and  in   any  all  link 
+逻辑操作符 and  or  not 
+连接操作符 
+union 合并两个查询的结果，去掉重复数据 
+union all 合并两个查询的结果,保留重复数据 
+intersect 取两个结果集的交集 
+minus: 取在第一个结果集中出现但在第二个结果集中没有出现过的数据 
+
+-------------------------------------------------------------------- 
+连接查询 分为内连接和外连接 
+
+--内连接  INNER JION  ON  只显示两个表中都有的数据 
+
+--外连接：左外连接/右外连接/全连接(左右外连接) 
+
+--左连接：以左表为主，会显示左表中的所有数据，如果在右表中没有出现这个数据 
+
+，则用null代替 
+
+--全连接：会显示两个表中的所有数据，如果在另外一张表中没有这个数据，则用 
+
+null代替 
+-------------------------------------------------------------------- 
+定义外键的语法 
+constraints 外键名称 foreign key(外键字段) references 被引用的表(被 
+
+引用字段) on delete cascade; 
+
+
+定义一个私有同义词： 
+create synonym abc for scott.emp; 
+
+删除私有同义词 
+drop synonym emp; 
+
+定义共有同义词 
+create public synonym emp for scott.emp; 
+------------------------------------------------------------- 
+索引：对数据直接定位的 
+索引是建立在某一个或某几个字段上的 
+索引的作用就是为了提高查询性能 
+减少磁盘的IO 
+索引时由Oralce自动维护的 
+
+创建索引 
+//标准索引 
+create index aa on emp(ename); 
+select * from emp where ename="SMITH"; 
+
+//唯一性索引 
+create unique index bb on student(sname); 
+
+
+//组合索引 
+create index cc on student(sname,saddress); 
+
+//唯一性组合索引（两个字段的值不能同时相同） 
+create index cc on student(sname,saddress); 
+
+主键会自动的添加唯一性索引 
+索引并不是越多越好，只需要对经常检索的字段建立索引 
+------------------------------------------------------------------- 
+序列：可以产生唯一的，连续的数字的对象 
+create sequence seq_aa 
+start with 1   -- 开始数字 
+increment by 1  --每次增量 
+maxvalue 200 --最大值 
+minvalue 1 --最小值 
+nocycle --当达到最大值的时候就不在生成 
+cache 10 --缓存10个数字 
+
+如何使用索引 
+查看该索引目前的值 
+select seq_aa.currvalue from dual; 
+
+//将索引先后移动 
+select seq_aa.nextvalue from dual; 
+------------------------------------------------------------------------- 
+视图：相当于一张‘虚拟表’ 
+     是用来显示一张表或多张表的查询的数据的 
+可以通过视图修改或删除基表的数据 
+//带检查的视图 
+create or replace view abc as select empno,ename,job,sal from emp 
+
+where ename='SMITH'  with check option CONSTRAINT ename; 
+在通过这个视图来更新或删除数据的时候，必须要满足where 后的条件，才 
+
+有效 
+
+创建只读视图 
+create or replace view abc as select empno,ename,job,sal+nvl 
+
+(comm,0) from emp  with read only; 
