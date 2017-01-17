@@ -1,3 +1,23 @@
+项目名称：华为iSale3.0销售合同管理系统-概算自动化报价子系统。
+项目描述：华为iSale3.0销售合同管理系统提供合同编写、审批、变更、执行的各个阶段的全生命周期文档协作和管控，合同价格的概算，报价等服务。官方网址：http://w3.huawei.com/isales
+项目职责：（1）Logistics物流方案模块：功能包含分年不分年物流，使用基线物流和绝对值百分比类型的物流费用。物流金额类型包含：运输费，保险费，关税，清关及报关费，仓储费，存货损失等费用的table前端UI设计，当用户录入费用提交时调用本地系统rest接口保存物流数据到数据库的接口的开发。
+（2）Finance财经方案模块：功能包含财经费率，财经风险假设；
+财经费率包含：财务成本，其它成本，外汇成本，资金占用成本，税，其它可抵扣税，预提税，其它税，销售税金及附加。财经费率数据需要webserviceCXF框架调用下游雷达接口，走SOA服务管控，获取到显示在前端界面
+财经风险方案后台保存接口的编写，保存数据到数据库SQL语句的编写优化
+物流和财经金额是double类型，模块费用加减乘除是用BigDecimal的subtract()add()multiply()divide()计算的
+（3）指导初级工程师做设备方案模块的工作
+使用技术：Spring+SOA+Restful+MyBatis,JavaScript，div+css，AJAX，jQuery，华为JALOR5.0框架（貌似是封装的extjs框架）
+开发工具：eclipse，Oracle, PL/SQL, maven,SVN协同开发工具
+项目收获：熟练使用maven，Sprin+MyBatis进行整合开发，熟练使用jquery,json等数据交换格式接口与SOA+Restful WEB服务开发,熟练使用oracle数据库SQL语句优化操作；
 
+项目名称：华为桌面APP Store应用商店服务端
+项目描述：
+华为终端桌面程序自主研发的一款APPStore系统，快速开发和管理APP的平台，社交化开发,APP和源码一键共享，无缝和设计桌面、开发桌面、测试桌面等对接，提供APP开发的模板，一键式发布功能，让你轻松的上手开发一个APP，发布后,你可以查看APP的下载量，评价，还可以和使用者互动
+。例如：Avenue Smart IDE为我司量身定做的集任务管理、本地构建、代码高级检查、源代码管理等功能于一体的开发环境。 SmartIDE团队让您第一时间了解到SmartIDE的动态、热点新闻，广大SmartIDE用户交流平台。官方网址:http://rnd-appstore.huawei.com/appstore
+使用技术：SprinMvc+ MyBatis+JavaScript，div+css，AJAX，jQuery，Extjs，FTP
+开发工具：eclipse，Mysql, Navicat,SVN协同开发工具, FileZilla工具上传file到FTP服务器
 
+项目职责：1.AppStore应用中心,导航栏显示的开发，应用中心应用的加载显示效果w3school有API说明，前端异步同步，springmvc查询数据后台接口的编写（仿照谷歌商店）。
+          2.AppStore个人中心审批代办模块的开发使用extjs框架实现，后台FTP上传下载的文件校验接口开发。
 
+项目收获：熟练使用Extjs，SprinMvc+MyBatis进行整合开发，熟练使用jquery,json等数据交换格式接口与WEB技术教程http://www.w3school.com.cn/的API查看开发
