@@ -1,0 +1,11 @@
+Random rd = new SecureRandom();
+		Set<String> test = new HashSet<String>(); 
+		for(int i = 0;i<111100;i++){
+			String number = "";
+			while (number.length() != 10) {
+				number += rd.nextInt(10);
+			}
+			System.out.println(number);
+			test.add(number);
+		}
+		System.out.println(test.size());
