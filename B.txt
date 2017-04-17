@@ -1,0 +1,115 @@
+package com.app.wii.webInterface.util;
+
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.net.UnknownHostException;
+import java.security.KeyStore;
+import java.security.SecureRandom;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLHandshakeException;
+
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpHost;
+import org.apache.http.HttpRequest;
+import org.apache.http.NoHttpResponseException;
+import org.apache.http.client.HttpRequestRetryHandler;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
+import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.conn.routing.HttpRoute;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.socket.PlainConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLContexts;
+import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.protocol.HttpContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public final class SSLHttpClient {
+	
+	private static Logger logger = LogManager.getLogger(SSLHttpClient.class.getName());
+	
+	public static CloseableHttpClient getHttpClientResponse(HttpHost target, String password) throws Exception {
+		CloseableHttpClient httpclient = null;
+		try {
+			//获得握手证书keystore
+			KeyStore trustStore = TrustKey.getTrustKey(password);
+			
+			//设置ssl上下文
+			SSLContext sslContext = SSLContexts.custom()
+					.loadTrustMaterial(null, new TrustSelfSignedStrategy())
+			        .loadKeyMaterial(trustStore, password.toCharArray())
+			        .setSecureRandom(new SecureRandom())
+			        .useSSL()
+			        .build();
+			
+			//将参数注入sslconnection工厂
+            SSLConnectionSocketFactory sslSocketFactoy = new SSLConnectionSocketFactory(
+                    sslContext, new String[]{"TLSv1"}, null,
+                    SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+            
+            //注册协议
+            Registry<ConnectionSocketFactory> r = RegistryBuilder.<ConnectionSocketFactory>create()
+                    .register("http", PlainConnectionSocketFactory.INSTANCE)
+                    .register("https", sslSocketFactoy)
+                    .build();
+            
+            /*根据已生成协议工厂对象生成连接池*/
+            PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(r);
+            connectionManager.setMaxTotal(10);//设置连接最大数
+            connectionManager.setDefaultMaxPerRoute(5);//设置每个路由基础的连接最大数
+            connectionManager.setMaxPerRoute(new HttpRoute(target), 20);//设置指定域,目标主机的最大连接数
+            
+            /*请求重试处理*/
+            HttpRequestRetryHandler httpRequestRetryHandler = new HttpRequestRetryHandler() {
+                public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
+                    if (executionCount >= 5) {// 如果已经重试了5次，就放弃
+                        return false;
+                    }
+                    if (exception instanceof NoHttpResponseException) {// 如果服务器丢掉了连接，那么就重试
+                        return true;
+                    }
+                    if (exception instanceof SSLHandshakeException) {// 不要重试SSL握手异常
+                        return false;
+                    }
+                    if (exception instanceof InterruptedIOException) {// 超时
+                        return false;
+                    }
+                    if (exception instanceof UnknownHostException) {// 目标服务器不可达
+                        return false;
+                    }
+                    if (exception instanceof ConnectTimeoutException) {// 连接被拒绝
+                        return false;
+                    }
+                    if (exception instanceof SSLException) {// SSL握手异常
+                        return false;
+                    }
+
+                    HttpClientContext clientContext = HttpClientContext.adapt(context);
+                    HttpRequest request = clientContext.getRequest();
+                    // 如果请求是幂等的，就再次尝试
+                    if (!(request instanceof HttpEntityEnclosingRequest)) {
+                        return true;
+                    }
+                    return false;
+                }
+            };
+            
+            //返回CloseableHttpClient对象,忽略域名一致验证
+            httpclient = HttpClients.custom().setConnectionManager(connectionManager).setRetryHandler(httpRequestRetryHandler).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("生产CloseableHttpClient对象出错：" + e.getMessage());
+			throw new Exception("生产CloseableHttpClient对象出错");
+		}
+		return httpclient;
+	}
+	
+}
