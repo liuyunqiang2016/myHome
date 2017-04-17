@@ -1,0 +1,57 @@
+/**  
+	 * 使用HttpClient模拟HTTPS访问  
+	 * @see ===================================================================================================================================  
+	 * @see 【配置Tomcat支持SSL(即让Tomcat下的Web应用处于SSL安全通道中)】  
+	 * @see ===================================================================================================================================  
+	 * @see 1、生成KeyStore  
+	 * @see    1)运行-->CMD-->"keytool -genkey -alias Jadyer_SSL_20120508 -keyalg RSA -validity 1024 -keystore D:\Jadyer_SSL_20120508.keystore"  
+	 * @see      参数说明----->-genkey  表示生成密钥  
+	 * @see                   -alias    指定别名,这里是Jadyer_SSL_20120508  
+	 * @see                   -keyalg   指定算法,这里是RSA  
+	 * @see                   -validity 指定证书有效期,这里是1024天  
+	 * @see                   -keystore 指定存储位置,这里是D:\\Jadyer_SSL_20120508.keystore  
+	 * @see    2)CMD输出----->输入keystore密码：hongyu75  
+	 * @see                   再次输入新密码：hongyu75  
+	 * @see                   您的名字与姓氏是什么？[Unknown]：127.0.0.1（这里要根据实际情况填写网站域名或者IP,否则会出现证书上的名称无效）  
+	 * @see                   您的组织单位名称是什么？[Unknown]：http://blog.csdn.net/jadyer  
+	 * @see                   您的组织名称是什么？[Unknown]：JavaLover_jadyer  
+	 * @see                   您所在的城市或区域名称是什么？[Unknown]：BJ  
+	 * @see                   您所在的州或省份名称是什么？[Unknown]：BJ_NanTian  
+	 * @see                   该单位的两字母国家代码是什么[Unknown]：CN  
+	 * @see                   CN=127.0.0.1, OU=http://blog.csdn.net/jadyer, O=JavaLover_jadyer, L=BJ, ST=BJ_NanTian, C=CN 正确吗？[否]：Y  
+	 * @see                   输入<Jadyer_SSL_20120508>的主密码（如果和 keystore 密码相同，按回车）：这里按回车键  
+	 * @see                   （这里的主密码一定要与keystore密码相同,否则启动Tomcat时就会告诉你java.io.IOException: Cannot recover key）  
+	 * @see    3)接下来就会按照-keystore参数值在指定位置生成指定的KeyStore文件了  
+	 * @see ===================================================================================================================================  
+	 * @see 2、让Tomcat支持SSL  
+	 * @see    1)将生成的Jadyer_SSL_20120508.keystore拷贝到\\%TOMCAT_HOME%\\conf\\目录中(其它目录也可以)  
+	 * @see    2)修改\\%TOMCAT_HOME%\\conf\\server.xml文件(大约在85行的位置),新增内容如下  
+	 * @see      <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true"  
+	 * @see                 maxThreads="150" scheme="https" secure="true"  
+	 * @see                 clientAuth="false" sslProtocol="TLS" URIEncoding="UTF-8"  
+	 * @see                 keystoreFile="conf/Jadyer_SSL_20120508.keystore" keystorePass="hongyu75"/>  
+	 * @see    3)这样,我们的Tomcat就支持HTTPS访问了(关于<Connector/>标签中的属性说明,参拜Google大神)  
+	 * @see ===================================================================================================================================  
+	 * @see 3、用浏览器访问我们的应用  
+	 * @see   1)输入https://127.0.0.1:8443/blog会发现你的应用已经处于SSL安全通道中了  
+	 * @see     此时,如果我们在浏览器里访问http://127.0.0.1:8443/blog会发现,竟然能访问  
+	 * @see     也就是说,我们虽然启用了HTTPS,但现在还可以绕开HTTPS直接访问HTTP还能,这样HTTPS也就起不到作用了  
+	 * @see   2)我们可以配置一下\\%TOMCAT_HOME%\\conf\\web.xml文件,使得HTTP的访问能够重定向到HTTPS的连接  
+	 * @see     修改位置大约为web.xml的1224行,即在</welcome-file-list>标签后面加入下面的内容,即可  
+	 * @see     <security-constraint>  
+	 * @see         <!-- Authorization setting for SSL -->  
+	 * @see         <web-resource-collection>  
+	 * @see             <web-resource-name>SSL_App</web-resource-name>  
+	 * @see             <!-- 指明需要SSL的url -->  
+	 * @see             <url-pattern>/*</url-pattern>  
+	 * @see             <http-method>GET</http-method>  
+	 * @see             <http-method>POST</http-method>  
+	 * @see         </web-resource-collection>  
+	 * @see         <user-data-constraint>  
+	 * @see             <!-- 指明需要SSL -->  
+	 * @see             <transport-guarantee>CONFIDENTIAL</transport-guarantee>  
+	 * @see         </user-data-constraint>  
+	 * @see     </security-constraint>  
+	 * @see ===================================================================================================================================  
+	 * @author http://blog.csdn.net/jadyer     https://jadyer.github.io/
+	 */
