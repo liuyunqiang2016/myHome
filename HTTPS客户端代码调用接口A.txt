@@ -1,0 +1,89 @@
+String path = "/ods/wx/queryGift";
+Map<String, Object> request = new HashMap<String, Object>();
+request.put("chn", "wii");
+String responseContent = CommonHttpsUtil.httpsResponse(path, 8443,"localhost", request);
+
+package com.app.wii.webInterface.util;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/** 
+ * 调用外部https服务工具类
+ * @author  liuyunqiang
+@date 创建时间：2017年4月15日 下午4:06:05 * 
+@version 1.0 * 
+@parameter  *
+@since  * 
+@return  */
+public final class CommonHttpsUtil {
+	
+	private static Logger logger = LogManager.getLogger(CommonHttpsUtil.class.getName());
+	
+	public static String httpsResponse(String path, int port, String hostIp, Map<String, Object> request) throws Exception {
+        String responseContent = null;//定义响应内容
+        HttpHost target = new HttpHost(hostIp, port, "https");
+        CloseableHttpClient httpClient = null;
+		try {
+			httpClient = SSLHttpClient.getHttpClientResponse(target, "changeit");//创建默认的httpClient实例
+			if(null == httpClient){
+				throw new Exception();
+			}
+			
+            /**
+             * 创建参数list并加入参数
+             */
+            List<NameValuePair> nvps = new ArrayList<NameValuePair>();
+            Set<String> keys = request.keySet();
+            for (String key : keys) {
+            	nvps.add(new BasicNameValuePair(key, (String)request.get(key)));
+			}
+            
+            //拼接uri
+            URI uri = new URIBuilder().setScheme("https").setHost(hostIp).setPort(port)
+						.setPath(path).setParameters(nvps).build();
+            HttpPost httpPost = new HttpPost(uri);//创建HttpPost
+            HttpResponse response = httpClient.execute(httpPost); //执行POST请求  
+            HttpEntity entity = response.getEntity();//获取响应实体  
+            if (null != entity) {
+                responseContent = EntityUtils.toString(entity, "UTF-8");
+                EntityUtils.consume(entity);
+            }
+		} catch (FileNotFoundException e) {  
+            e.printStackTrace();
+            logger.error("调用https出错：" + e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.error("调用https出错：" + e.getMessage());
+        } catch (URISyntaxException e) {
+			e.printStackTrace();
+			logger.error("调用https出错：" + e.getMessage());
+		}finally {  
+            try {
+				httpClient.close();//关闭连接,释放资源
+			} catch (IOException e) {
+				e.printStackTrace();
+				logger.error("关闭httpClient出错：" + e.getMessage());
+			}
+        }
+		return responseContent;
+	}
+}
