@@ -1,0 +1,54 @@
+package com.app.wii.webInterface.util;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * 加载本地KeyStore证书
+ * @author liuyunqiang
+ */
+public final class TrustKey {
+	
+	private static Logger logger = LogManager.getLogger(TrustKey.class.getName());
+	
+	/**
+	 * 加载本地KeyStore证书
+	 * @Title: getTrustKey
+	 * @author liuyunqiang
+	 * @Date 2017年4月15日 下午3:34:37
+	 * @return KeyStore
+	 * @throws Exception
+	 */
+	public static KeyStore getTrustKey(String password) {
+		KeyStore trustStore = null;
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(new File("E:\\data.keystore"));
+			trustStore = KeyStore.getInstance(KeyStore.getDefaultType());  
+            trustStore.load(fis, password.toCharArray());// 
+            fis.close();
+        } catch (NoSuchAlgorithmException e) {  
+            e.printStackTrace();
+            logger.error("读取加载证书文件出错：" + e.getMessage());
+        } catch (CertificateException e) {  
+            e.printStackTrace();
+            logger.error("读取加载证书文件出错：" + e.getMessage());
+        } catch (IOException e) {  
+            e.printStackTrace();
+            logger.error("读取加载证书文件出错：" + e.getMessage());
+        } catch (KeyStoreException e) {
+			e.printStackTrace();
+			logger.error("读取加载证书文件出错：" + e.getMessage());
+		}
+		return trustStore;
+	}
+
+}
