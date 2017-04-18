@@ -55,3 +55,38 @@
 	 * @see ===================================================================================================================================  
 	 * @author http://blog.csdn.net/jadyer     https://jadyer.github.io/
 	 */
+我用的是从网上下载的一个不错的基于Struts2框架的SSL插件，下载地址为：http://code.google.com/p/struts2-ssl-plugin/
+
+首先当然把jar包COPY到lib下，之后在struts.xml中设置: 
+
+<constant name="struts2.sslplugin.httpPort" value="8085"/> 
+
+<constant name="struts2.sslplugin.httpsPort" value="8443"/> 
+
+<package name="default" extends="ssl-default"> 
+
+注意,default里可以继承这个ssl-default,因为其实这个ssl-default也是继承struts-default的,放心用 。还要注意的是，需要使用SSL安全通讯的action要放到extends=ssl-default的包内，不然用submit提交的时候是不会自动跳转到https的。
+
+ 
+
+之后在你要某个SSL的方法前,用注释,就行了: 
+
+@Secured 
+
+  public String execute1() throws Exception { 
+
+       …
+
+  } 
+
+ 
+
+如果要整个类都要SSL,则 
+
+@Secured 
+
+public class LoginAction extends ActionSupport {
+
+….
+
+}
