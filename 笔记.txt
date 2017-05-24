@@ -16,10 +16,6 @@
 10、Rest-Web-Service-Client_v3.6.0.rar 谷歌格式化webservices服务的插件 rest风格
 
 maven+nexus
-
-http://www.w3school.com.cn/领先的 Web 技术教程
-
-
 PL/SQL Deveploper version 7.1.5.403
 Eclipse version 3.7.0
 Maven 3.3.3
