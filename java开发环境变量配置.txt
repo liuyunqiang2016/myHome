@@ -1,0 +1,29 @@
+一、  JDK环境变量配置
+      1.配置环境变量：(相对路径)
+       JAVA_HOME              C:\Program Files\Java\jdk1.6.0_18                 jdk安装目录       
+
+      2.新建(CLASSPATH)
+       CLASSPATH    =.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+
+      3.编辑path环境
+        path =%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+
+      4.在控制台输入 java -version显示版本信息则表示设置成功。
+   
+二、Tomcat环境变量配置
+     1.配置环境变量
+     CATALINA_HOME      E:\apache-tomcat-6.0.33                             tomcat放置的目录
+
+     2.配置path变量
+      path=   %CATALINA_HOME%\bin;%CATALINA_HOME%/common/lib;
+
+     3.运行E:\apache-tomcat-6.0.33\bin的startup.bat文件，如果没有报错就表示配置成功。
+
+三、Maven环境变量配置
+     1.配置Maven的相对路径
+       M2_HOME                 E:\struts-hibernate-struts\apache-maven-3.0.4   maven的放置目录
+
+     2.配置path
+      path=%M2_HOME%\bin;
+
+     3.在控制台输入 mvn-version如果提示版本信息则表示安装成功。
